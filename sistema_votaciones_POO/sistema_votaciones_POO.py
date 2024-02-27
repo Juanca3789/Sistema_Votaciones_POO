@@ -1,11 +1,18 @@
-"""Welcome to Reflex! This file outlines the steps to create a basic app."""
-
-from rxconfig import config
+from decimal import *
 
 import reflex as rx
 
+from rxconfig import config
+
 docs_url = "https://reflex.dev/docs/getting-started/introduction"
 filename = f"{config.app_name}/{config.app_name}.py"
+
+class Candidato(rx.Model, table = True):
+    nombre: str
+    edad: int
+    partido: str
+    costo_campania: float
+    votos_obtenidos: int
 
 
 class State(rx.State):
