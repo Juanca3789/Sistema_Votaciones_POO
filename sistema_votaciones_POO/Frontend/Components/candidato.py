@@ -1,5 +1,9 @@
 import reflex as rx
 
+from sistema_votaciones_POO.Frontend.Components.detailsModal import \
+    detailsModal
+from sistema_votaciones_POO.Frontend.Components.votarModal import votarModal
+
 
 def candidato() -> rx.Component:
     return rx.card(
@@ -18,11 +22,15 @@ def candidato() -> rx.Component:
                                 align= "center"
                             ),
                             rx.hstack(
-                                rx.button(
-                                    "Detalles"
+                                detailsModal(
+                                    rx.button(
+                                        "Detalles"
+                                    )
                                 ),
-                                rx.button(
-                                    "Votar"
+                                votarModal(
+                                    rx.button(
+                                        "Votar"
+                                    )
                                 ),
                                 float= "right"
                             )
