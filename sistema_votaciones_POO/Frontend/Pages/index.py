@@ -1,12 +1,45 @@
 import reflex as rx
 
+from sistema_votaciones_POO.Backend.usuario import QueryUser
 from sistema_votaciones_POO.Frontend.Components.loginModal import loginModal
 from sistema_votaciones_POO.Frontend.Components.regModal import regModal
 
 
+def login() -> rx.Component:
+    return rx.alert_dialog.root(
+                rx.alert_dialog.content(
+                    rx.heading("Sesión iniciada correctamente", margin= "6px"),
+                    rx.text("Dirigiendo a la pagina principal", margin= "6px"),
+                    rx.alert_dialog.action(
+                        rx.button(
+                            "Aceptar",
+                            on_click= rx.redirect(
+                                "/votacion"
+                            )
+                        )
+                    )
+                ),
+                open= QueryUser.aux1
+            )
+
+def register() -> rx.Component:
+    return rx.alert_dialog.root(
+                rx.alert_dialog.content(
+                    rx.heading("Usuario registrado correctamente", margin= "6px"),
+                    rx.text("Por favor, inicie sesión para continuar", margin= "6px"),
+                    rx.alert_dialog.action(
+                        rx.button(
+                            "Aceptar",
+                            on_click= QueryUser.onReg()
+                        )
+                    )
+                ),
+                open= QueryUser.aux2
+            )
+
 def index() -> rx.Component:
     return rx.center(
-            rx.box(
+            rx.card(
                 rx.vstack(
                     loginModal(
                         rx.button(
@@ -20,13 +53,8 @@ def index() -> rx.Component:
                     ),
                     align_items= "center"
                 ),
-                border_radius= "12px",
-                border_color= "black",
-                border_width= "1px",
-                background_color= "#FEFFB7",
-                padding= "1em",
-                margin= "1em",
-                width= "200px",
-                height= "110px"
-            )
+                margin= "1em"
+            ),
+            login(),
+            register()
         )

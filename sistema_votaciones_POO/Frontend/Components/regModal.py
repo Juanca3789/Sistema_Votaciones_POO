@@ -1,5 +1,6 @@
 import reflex as rx
 
+from sistema_votaciones_POO.Backend.usuario import QueryUser
 from sistema_votaciones_POO.Frontend.Components.loginModal import loginModal
 
 
@@ -23,11 +24,27 @@ def regModal(trigger: rx.Component) -> rx.Component:
                             )
                     ),
                     rx.vstack(
-                        rx.input(placeholder= "Numero de cedula"),
-                        rx.input(placeholder= "Nombre completo"),
-                        rx.input(placeholder= "Contraseña"),
+                        rx.input(
+                            placeholder= "Numero de cedula",
+                            on_change= QueryUser.set_num_cedula,
+                            type= "number"
+                        ),
+                        rx.input(
+                            placeholder= "Nombre completo",
+                            on_change= QueryUser.set_nombre,
+                            type= "text"
+                        ),
+                        rx.input(
+                            placeholder= "Contraseña",
+                            on_change= QueryUser.set_clave,
+                            type= "password"
+                        ),
                         rx.alert_dialog.action(
-                            rx.button("Registro")
+                            rx.button(
+                                "Registro",
+                                on_click= QueryUser.nuevoUsuario(),
+                                type= "reset"
+                            )
                         )
                     )
                 )

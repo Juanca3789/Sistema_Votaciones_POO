@@ -32,7 +32,8 @@ def candidato() -> rx.Component:
                                         "Votar"
                                     )
                                 ),
-                                float= "right"
+                                float= "right",
+                                margin_top= "4px"
                             )
                         ),
                         spacing="2",
