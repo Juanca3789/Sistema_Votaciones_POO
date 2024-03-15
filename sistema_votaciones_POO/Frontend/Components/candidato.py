@@ -1,31 +1,34 @@
 import reflex as rx
 
+from sistema_votaciones_POO.Backend.votaciones import candidatos
 from sistema_votaciones_POO.Frontend.Components.detailsModal import \
     detailsModal
 from sistema_votaciones_POO.Frontend.Components.votarModal import votarModal
 
 
-def candidato() -> rx.Component:
+def candidato(cand: candidatos) -> rx.Component:
     return rx.card(
                     rx.flex(
                         rx.box(
                             rx.heading(
-                                "Candidato #1",
+                                f"{cand.nombre}",
                                 align= "center"
                             ),
                             rx.image(
-                                src="/images.png",
-                                align= "center"
+                                src=f"{cand.imagen}",
+                                align= "center",
+                                margin= "10px"
                             ),
                             rx.text(
-                                "Partido Politico",
+                                f"Partido: {cand.partido}",
                                 align= "center"
                             ),
                             rx.hstack(
                                 detailsModal(
                                     rx.button(
                                         "Detalles"
-                                    )
+                                    ),
+                                    cand
                                 ),
                                 votarModal(
                                     rx.button(

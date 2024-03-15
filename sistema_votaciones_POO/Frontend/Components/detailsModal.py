@@ -1,7 +1,9 @@
 import reflex as rx
 
+from sistema_votaciones_POO.Backend.votaciones import candidatos
 
-def detailsModal(trigger: rx.Component) -> rx.Component:
+
+def detailsModal(trigger: rx.Component, cand: candidatos) -> rx.Component:
     return rx.alert_dialog.root(
         rx.alert_dialog.trigger(
             trigger
@@ -9,14 +11,14 @@ def detailsModal(trigger: rx.Component) -> rx.Component:
         rx.alert_dialog.content(
             rx.flex(
                 rx.hstack(
-                    rx.image(src= "/images.png"),
+                    rx.image(src= {cand.imagen}),
                     rx.vstack(
-                        rx.heading("Candidato #1"),
-                        rx.text(rx.text.strong("Genero: "), "Masculino"),
-                        rx.text(rx.text.strong("Edad: "), "52"),
-                        rx.text(rx.text.strong("Partido politico: "), "Comunista"),
-                        rx.text(rx.text.strong("Costo de campaña: "), "2'000.000"),
-                        rx.text(rx.text.strong("Cantidad de votos: "), "0"),
+                        rx.heading(cand.nombre),
+                        rx.text(rx.text.strong("Genero: "), f"{cand.genero}"),
+                        rx.text(rx.text.strong("Edad: "), f"{cand.edad}"),
+                        rx.text(rx.text.strong("Partido politico: "), f"{cand.partido}"),
+                        rx.text(rx.text.strong("Costo de campaña: "), f"{cand.costo_campaña}"),
+                        rx.text(rx.text.strong("Cantidad de votos: "), f"{cand.cant_votos}"),
                         rx.text(rx.text.strong("Porcentaje de votos: "), "0%"),
                         rx.alert_dialog.cancel(
                             rx.button("Regresar")

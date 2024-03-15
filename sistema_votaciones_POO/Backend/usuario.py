@@ -15,7 +15,7 @@ class QueryUser(rx.State):
         with rx.session() as session:
             self.users = session.exec(
                 User.select.where(
-                    (User.num_cedula == self.num_cedula) and (User.clave == self.clave)
+                    (User.num_cedula == self.num_cedula) & (User.clave == self.clave)
                 )
             ).all()
             if(self.users):
