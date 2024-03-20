@@ -33,7 +33,8 @@ def candidato(cand: candidatos) -> rx.Component:
                                 votarModal(
                                     rx.button(
                                         "Votar"
-                                    )
+                                    ),
+                                    cand
                                 ),
                                 float= "right",
                                 margin_top= "4px"

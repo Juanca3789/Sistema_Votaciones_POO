@@ -19,7 +19,7 @@ def detailsModal(trigger: rx.Component, cand: candidatos) -> rx.Component:
                         rx.text(rx.text.strong("Partido politico: "), f"{cand.partido}"),
                         rx.text(rx.text.strong("Costo de campaña: "), f"{cand.costo_campaña}"),
                         rx.text(rx.text.strong("Cantidad de votos: "), f"{cand.cant_votos}"),
-                        rx.text(rx.text.strong("Porcentaje de votos: "), "0%"),
+                        rx.text(rx.text.strong("Porcentaje de votos: "), f"{cand.pvotos}"),
                         rx.alert_dialog.cancel(
                             rx.button("Regresar")
                         )

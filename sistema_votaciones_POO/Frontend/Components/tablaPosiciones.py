@@ -17,7 +17,7 @@ def rowCandidato(icon: str, candidato: candidatos) -> rx.Component:
                     rx.text(f"{candidato.cant_votos} votos")
                 ),
                 rx.table.cell(
-                    rx.text(f"{0}%")
+                    rx.text(f"{candidato.pvotos}%")
                 )
             )
 
