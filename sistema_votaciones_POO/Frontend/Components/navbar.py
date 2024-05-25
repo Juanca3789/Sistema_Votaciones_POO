@@ -4,14 +4,14 @@ from sistema_votaciones_POO.Backend.usuario import QueryUser
 
 
 def navbar() -> rx.Component:
-    return rx.hstack(
-        rx.text(f"Bienvenido {QueryUser.users[0].nombre}", margin= "5px"),
-        rx.button(
+    return rx.chakra.hstack(
+        rx.chakra.text(f"Bienvenido {QueryUser.users[0].nombre}", margin= "5px"),
+        rx.chakra.button(
             "Resultados",
             on_click= rx.redirect(
                 "/resultados"
             )),
-        rx.button(
+        rx.chakra.button(
             "Cerrar Sesion",
             on_click= QueryUser.cerrarSesion()
         ),

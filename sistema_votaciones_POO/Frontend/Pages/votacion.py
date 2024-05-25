@@ -13,20 +13,19 @@ def votacion() -> rx.Component:
             navbar(),
             rx.center(
                 rx.flex(
-                    candidato(votaciones.candidaturas[0]),
-                    candidato(votaciones.candidaturas[1]),
-                    candidato(votaciones.candidaturas[2]),
-                    candidato(votaciones.candidaturas[3]),
+                    rx.foreach(
+                        votaciones.candidaturas,
+                        lambda cand: candidato(cand)
+                    ),
                     spacing="2",
-                    align= "center",
-                    justify= "center",
-                    wrap= "wrap"
+                    align="center",
+                    justify="center",
+                    wrap="wrap"
                 ),
-                margin_top= "8px"
+                margin_top="8px"
             )
         ),
-        rx.script(
-            "window.location.assign('http://localhost:3000/')"
-        )
+        rx.script("window.location.assign('http://localhost:3000/')")
     )
+
         

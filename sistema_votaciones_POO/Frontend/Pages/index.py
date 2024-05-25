@@ -1,8 +1,8 @@
 import reflex as rx
 
 from sistema_votaciones_POO.Backend.usuario import QueryUser
-from sistema_votaciones_POO.Frontend.Components.loginModal import loginModal
-from sistema_votaciones_POO.Frontend.Components.regModal import regModal
+from sistema_votaciones_POO.Frontend.Components.loginModal import (loginModal,
+                                                                   regModal)
 
 
 def login() -> rx.Component:
@@ -11,7 +11,7 @@ def login() -> rx.Component:
                     rx.heading("Sesión iniciada correctamente", margin= "6px"),
                     rx.text("Dirigiendo a la pagina principal", margin= "6px"),
                     rx.alert_dialog.action(
-                        rx.button(
+                        rx.chakra.button(
                             "Aceptar",
                             on_click= rx.redirect(
                                 "/votacion"

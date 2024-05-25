@@ -1,5 +1,6 @@
 import reflex as rx
 
+from sistema_votaciones_POO.Backend.usuario import QueryUser
 from sistema_votaciones_POO.Backend.votaciones import candidatos, votaciones
 
 

@@ -12,9 +12,12 @@ def resultados() -> rx.Component:
         QueryUser.aux1,
         rx.box(
             navbar(),
-            tablaPosiciones(votaciones.candidaturas)
+            tablaPosiciones(votaciones.candidaturas),
+            rx.button(
+                "Vaciar Urna",
+                on_click=votaciones.vaciarUrna,
+                margin_top="10px"
+            )
         ),
-        rx.script(
-            "window.location.assign('http://localhost:3000/')"
-        )
+        rx.script("window.location.assign('http://localhost:3000/')")
     )

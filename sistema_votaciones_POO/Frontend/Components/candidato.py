@@ -7,31 +7,31 @@ from sistema_votaciones_POO.Frontend.Components.votarModal import votarModal
 
 
 def candidato(cand: candidatos) -> rx.Component:
-    return rx.card(
-                    rx.flex(
-                        rx.box(
-                            rx.heading(
+    return rx.chakra.card(
+                    rx.chakra.flex(
+                        rx.chakra.box(
+                            rx.chakra.heading(
                                 f"{cand.nombre}",
                                 align= "center"
                             ),
-                            rx.image(
+                            rx.chakra.image(
                                 src=f"{cand.imagen}",
                                 align= "center",
                                 margin= "10px"
                             ),
-                            rx.text(
+                            rx.chakra.text(
                                 f"Partido: {cand.partido}",
                                 align= "center"
                             ),
-                            rx.hstack(
+                            rx.chakra.hstack(
                                 detailsModal(
-                                    rx.button(
+                                    rx.chakra.button(
                                         "Detalles"
                                     ),
                                     cand
                                 ),
                                 votarModal(
-                                    rx.button(
+                                    rx.chakra.button(
                                         "Votar"
                                     ),
                                     cand
