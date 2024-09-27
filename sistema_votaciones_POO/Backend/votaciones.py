@@ -24,7 +24,7 @@ class votaciones(rx.State):
     ]
     
     cand: int = None
-    medio_comunicacion: str = ""
+    medio_comunicacion: str = "Television"
     votos: list[Votos] = []
 
     @rx.var
